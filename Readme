@@ -1,0 +1,16 @@
+	In this project, i implemented a project to analyze the HTTP and DNS messages, i used python pcapy to implement it.
+I'll get ethernet packets by using findalldevs and open_lives functions , and then what i want to print out is the mac address, ip address, and TCP/UDP port for both source and destination.
+	(1)Firstly i get the ethernet packet and input it into parse_packet function, and in this functions, 
+	(2)we then parse the ethernet header , take the mac address out, and then peel it off,
+	(3)then parse IP header , take the IP address out, take the transport_layer protocol out and then peel it off, 
+
+	(4)if the transport layer uses TCP, we parse TCP header, extract port number from it and peel it off, 
+	(5)lastly we find the http message type in the http content.
+
+	(6)if the transport layer uses UDP, we parse UDP header , also extract the port number and then peel UDP header off,
+	(7) then in the rest of dns content we can unpack it and find its message type.
+
+	(8) lastly we print it out, then we get what we want.
+
+	It's like multiple boxes overlayed, we take turns to extract what we want and peel off this layer until the last layer.
+	
